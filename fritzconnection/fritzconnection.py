@@ -175,7 +175,7 @@ class FritzService(object):
 
     @property
     def name(self):
-        return self.service_type.split(':')[-2]
+        return ':'.join(self.service_type.split(':')[-2:])
 
 
 class FritzXmlParser(object):
