@@ -13,7 +13,7 @@ import argparse
 import collections
 import time
 import fritzconnection
-import fritztools
+from . import fritztools
 
 
 # version-access:

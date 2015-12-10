@@ -21,8 +21,8 @@ except ImportError:
     import tkinter as tk
     import tkinter.font as tkfont
 import fritzconnection
-import fritzstatus
-import fritztools
+from . import fritzstatus
+from . import fritztools
 
 
 class MeterRectangle(object):
