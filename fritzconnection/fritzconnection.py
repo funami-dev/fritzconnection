@@ -122,7 +122,7 @@ class FritzAction(object):
         auth = None
         if self.password:
             auth=HTTPDigestAuth(self.user, self.password)
-        response = requests.post(url, data=data, headers=headers, auth=auth)
+        response = requests.post(url, data=data, headers=headers, auth=auth, timeout=10)
         # lxml needs bytes, therefore response.content (not response.text)
         result = self.parse_response(response.content)
         return result
