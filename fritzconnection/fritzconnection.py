@@ -34,6 +34,7 @@ import requests
 from requests.auth import HTTPDigestAuth
 
 from lxml import etree
+import urllib.request
 
 
 # FritzConnection defaults:
@@ -186,7 +187,9 @@ class FritzXmlParser(object):
         if address is None:
             source = filename
         else:
-            source = 'http://{0}:{1}/{2}'.format(address, port, filename)
+            url = 'http://{0}:{1}/{2}'.format(address, port, filename)
+            source = urllib.request.urlopen(url, timeout=10)
+
         tree = etree.parse(source)
         self.root = tree.getroot()
         self.namespace = etree.QName(self.root.tag).namespace
